@@ -36,7 +36,9 @@ class TipCalculatorViewController: UIViewController, UITextFieldDelegate{
     
     func calcTip(){
         tipCalc.tipPercentage = Float(tipPercentageSlider.value)
-        tipCalc.amountBeforeTax = Float(amountBeforeTaxTextField.text!)!
+        let amountEntered: String = amountBeforeTaxTextField.text ?? "0"
+        tipCalc.amountBeforeTax = Float(amountEntered)!
+        
         tipCalc.calculateTip()
         updateUI()
     }
